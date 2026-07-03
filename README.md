@@ -4,9 +4,11 @@ A Joomla 6 system plugin that replaces the browser’s default right-click conte
 
 This creates a simple way to add hidden panels, developer tools, or contextual UI triggered from any frontend element.
 
+This is really just a bit of fun - I like to suprise site visitors with various **Hidden Secrets**.
+
 ---
 
-## ✨ Features
+## Features
 
 - Intercepts right-click events on a configurable CSS selector
 - Prevents the default browser context menu
@@ -17,7 +19,7 @@ This creates a simple way to add hidden panels, developer tools, or contextual U
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 When enabled, the plugin:
 
@@ -25,8 +27,9 @@ When enabled, the plugin:
    ```
    hiddensecret
    ```
+   or any module position defined in the plugin configuration 
 
-2. Listens for right-click events on a configured CSS selector (e.g. `.navbar`)
+2. Listens for right-click events on a configured CSS selector (e.g. `.navbar-brand`)
 
 3. If both conditions are true:
    - The browser context menu is blocked
@@ -35,7 +38,7 @@ When enabled, the plugin:
 
 ---
 
-## 🔧 Plugin Configuration
+## Plugin Configuration
 
 The plugin has a several options:
 
@@ -45,20 +48,47 @@ Defines the CSS selector that will trigger the modal on right-click.
 
 Example:
 ```
-.navbar
+.navbar-brand
 ```
 
 You can use any valid CSS selector, such as:
 
-- `.navbar`
+- `.navbar-brand`
 - `#main-menu`
 - `.site-header`
 - `button.admin-trigger`
 
-### More options to be documented
+### Module Position
+
+Defines the position that the module you wish to be displaed in the modal is in. The default is **hiddensecret** but you can configure it to use any module position. The position must not be a position that your template displays. In the module drop down select for the available positions you can simply type the name of the position you want to use.
+
+### Modal Title
+
+Optionaly add a title to the modal
+
+### Modal Size
+
+The default size is **large** but you can select from Small, Large, Extra Large and Full Screen
+
+### Backdrop
+
+By default the modal is displayed on top of a shaded backdrop. You can disable it with this option
+
+### Close on Escape
+
+For accessibility and expected behaviour you should probably leave this to **Yes**
+
+### Focus Modal
+
+For accessibility and expected behaviour you should probably leave this to **Yes**
+
+### Suppress Browser Context Menu
+
+Normally your browser will display a **context menu** when you right click. With this set to the default **Yes** the context menu will not be displayed for the target element.
+
 ---
 
-## 📦 Module Requirement
+## Module Requirement
 
 To display content in the modal:
 
@@ -68,6 +98,7 @@ To display content in the modal:
 ```
 hiddensecret
 ```
+or the position defined in the plugin configuration
 
 3. Publish the module
 
@@ -75,7 +106,7 @@ If no module is assigned and published to this position, the plugin does nothing
 
 ---
 
-## 🚀 Usage Example
+## Usage Example
 
 ### 1. Enable the plugin
 
@@ -92,7 +123,7 @@ Enable it.
 Example:
 
 ```
-.navbar
+.navbar-brand
 ```
 
 ---
@@ -107,23 +138,24 @@ Example:
 
 ### 4. Test it
 
-Right-click on the selected element (e.g. navbar).
+Right-click on the selected element (e.g. navbar-brand).
 
 Instead of the browser’s context menu, a Bootstrap modal will appear containing your module content.
 
 ---
 
-## 🧠 Use Cases
+## Use Cases
 
 - Hidden admin or developer tools
 - Debug panels
 - Easter egg features
 - Context-sensitive overlays
 - Secret navigation shortcuts
+- List of corporate logos for download
 
 ---
 
-## ⚠️ Notes
+## Notes
 
 - Requires Bootstrap modal support in the template (standard in Joomla 6)
 - Only triggers when:
@@ -134,7 +166,7 @@ Instead of the browser’s context menu, a Bootstrap modal will appear containin
 
 ---
 
-## 🧪 Behaviour Summary
+## Behaviour Summary
 
 ```
 User right-clicks element matching selector
@@ -142,20 +174,6 @@ User right-clicks element matching selector
 → Bootstrap modal opens
 → module content is rendered inside modal
 ```
-
----
-
-## 📁 Module Position Reference
-
-| Purpose | Position |
-|--------|----------|
-| Hidden Secrets modal content | hiddensecret |
-
----
-
-## 👨‍💻 Author
-
-Brian Teeman
 
 ---
 
