@@ -86,6 +86,10 @@ For accessibility and expected behaviour you should probably leave this to **Yes
 
 Normally your browser will display a **context menu** when you right click. With this set to the default **Yes** the context menu will not be displayed for the target element.
 
+### Debug
+
+When enabled you will be able to see and confirm the plugin settings in use on your site front end in the browser console.
+
 ---
 
 ## Module Requirement
