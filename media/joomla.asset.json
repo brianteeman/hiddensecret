@@ -1,0 +1,15 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "plg_system_hiddensecrets",
+    "version": "1.0.0",
+    "assets": [
+        {
+            "name": "hiddensecrets",
+            "type": "script",
+            "uri": "plg_system_hiddensecrets/js/hiddensecrets.js",
+            "attributes": {
+                "type": "module"
+            }
+        }
+    ]
+}
