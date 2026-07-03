@@ -24,11 +24,8 @@ $title = $options['title'] ?? '';
      role="dialog"
      aria-hidden="true"
      aria-labelledby="<?php echo $id; ?>Label">
-
     <div class="modal-dialog modal-<?php echo htmlspecialchars($size); ?>">
-
         <div class="modal-content">
-
             <?php if ($title !== '') : ?>
                 <div class="modal-header">
                     <h5 class="modal-title" id="<?php echo $id; ?>Label">
@@ -42,13 +39,9 @@ $title = $options['title'] ?? '';
                     </button>
                 </div>
             <?php endif; ?>
-
             <div class="modal-body">
                 <?php echo $modules; ?>
             </div>
-
         </div>
-
     </div>
-
 </div>
