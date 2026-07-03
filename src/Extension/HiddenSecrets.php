@@ -7,13 +7,13 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
+declare(strict_types=1);
+
 namespace Brian\Plugin\System\HiddenSecrets\Extension;
 
 defined('_JEXEC') or die;
 
-use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Document\HtmlDocument;
-use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ModuleHelper;
 use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Plugin\CMSPlugin;
@@ -21,6 +21,8 @@ use Joomla\Event\SubscriberInterface;
 
 final class HiddenSecrets extends CMSPlugin implements SubscriberInterface
 {
+    protected $autoloadLanguage = true;
+
     private ?string $modalHtml = null;
 
     public static function getSubscribedEvents(): array
@@ -33,7 +35,7 @@ final class HiddenSecrets extends CMSPlugin implements SubscriberInterface
 
     public function onAfterDispatch(): void
     {
-        $app = Factory::getApplication();
+        $app = $this->getApplication();
 
         if (!$app->isClient('site')) {
             return;
@@ -60,11 +62,16 @@ final class HiddenSecrets extends CMSPlugin implements SubscriberInterface
 
         $wa = $document->getWebAssetManager();
 
-        $wa->getRegistry()->addExtensionRegistryFile('plg_system_hiddensecrets');
-        $wa->useScript('plg_system_hiddensecrets.hiddensecrets');
+        $wa->registerAndUseScript(
+            'plg_system_hiddensecrets.hiddensecrets',
+            'media/plg_system_hiddensecrets/js/hiddensecrets.js',
+            [],
+            ['type' => 'module'],
+            ['core', 'bootstrap.modal']
+        );
 
         $document->addScriptOptions('plg_system_hiddensecrets', [
-            'selector' => $this->params->get('selector', '.navbar'),
+            'selector' => $this->params->get('selector', '.navbar-brand'),
             'backdrop' => (bool) $this->params->get('backdrop', 1),
             'keyboard' => (bool) $this->params->get('keyboard', 1),
             'focus'    => (bool) $this->params->get('focus', 1),
@@ -88,7 +95,7 @@ final class HiddenSecrets extends CMSPlugin implements SubscriberInterface
 
     public function onAfterRender(): void
     {
-        $app = Factory::getApplication();
+        $app = $this->getApplication();
 
         if (!$this->modalHtml || !$app->isClient('site')) {
             return;
