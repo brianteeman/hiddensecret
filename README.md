@@ -6,6 +6,9 @@ This creates a simple way to add hidden panels, developer tools, or contextual U
 
 This is really just a bit of fun - I like to suprise site visitors with various **Hidden Secrets**.
 
+<img width="1280" height="640" alt="Brian Teeman sat at his messy desk" src="https://github.com/user-attachments/assets/4db8faa0-e123-4974-905c-6e8d108275e7" />
+
+
 ---
 
 ## Features
