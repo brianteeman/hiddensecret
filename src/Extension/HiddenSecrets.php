@@ -60,6 +60,7 @@ final class HiddenSecrets extends CMSPlugin implements SubscriberInterface
 
         $wa = $document->getWebAssetManager();
 
+        $wa->getRegistry()->addExtensionRegistryFile('plg_system_hiddensecrets');
         $wa->useScript('plg_system_hiddensecrets.hiddensecrets');
 
         $document->addScriptOptions('plg_system_hiddensecrets', [
@@ -80,7 +81,8 @@ final class HiddenSecrets extends CMSPlugin implements SubscriberInterface
                     'title' => $this->params->get('title', ''),
                     'size'  => $this->params->get('size', 'lg'),
                 ],
-            ]
+            ],
+            JPATH_PLUGINS . '/system/hiddensecrets/layouts'
         );
     }
 
