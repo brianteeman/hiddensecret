@@ -177,6 +177,6 @@ User right-clicks element matching selector
 
 ---
 
-## 📄 License
+## License
 
 GNU General Public License v2.0 or later
