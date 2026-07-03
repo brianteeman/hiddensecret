@@ -10,35 +10,39 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Language\Text;
 
-$id      = $displayData['id'];
+$id      = htmlspecialchars($displayData['id']);
 $modules = $displayData['modules'];
 $options = $displayData['options'];
 
-$size  = $options['size'] ?? 'lg';
+$size  = htmlspecialchars($options['size'] ?? 'lg');
 $title = $options['title'] ?? '';
 ?>
 
 <div class="modal fade"
-     id="<?php echo htmlspecialchars($id); ?>"
+     id="<?php echo $id; ?>"
      tabindex="-1"
      role="dialog"
      aria-hidden="true"
-     aria-labelledby="<?php echo $id; ?>Label">
-    <div class="modal-dialog modal-<?php echo htmlspecialchars($size); ?>">
+     <?php if ($title !== '') : ?>
+     aria-labelledby="<?php echo $id; ?>Label"
+     <?php else : ?>
+     aria-label="<?php echo Text::_('PLG_SYSTEM_HIDDENSECRETS'); ?>"
+     <?php endif; ?>>
+    <div class="modal-dialog modal-<?php echo $size; ?>">
         <div class="modal-content">
-            <?php if ($title !== '') : ?>
-                <div class="modal-header">
+            <div class="modal-header<?php echo $title === '' ? ' border-0 pb-0' : ''; ?>">
+                <?php if ($title !== '') : ?>
                     <h5 class="modal-title" id="<?php echo $id; ?>Label">
                         <?php echo htmlspecialchars($title); ?>
                     </h5>
+                <?php endif; ?>
 
-                    <button type="button"
-                            class="btn-close"
-                            data-bs-dismiss="modal"
-                            aria-label="<?php echo Text::_('JCLOSE'); ?>">
-                    </button>
-                </div>
-            <?php endif; ?>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="<?php echo Text::_('JCLOSE'); ?>">
+                </button>
+            </div>
             <div class="modal-body">
                 <?php echo $modules; ?>
             </div>
