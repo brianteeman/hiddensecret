@@ -4,9 +4,13 @@
     "version": "1.0.0",
     "assets": [
         {
-            "name": "hiddensecrets",
+            "name": "plg_system_hiddensecrets.hiddensecrets",
             "type": "script",
             "uri": "plg_system_hiddensecrets/js/hiddensecrets.js",
+            "dependencies": [
+                "core",
+                "bootstrap.modal"
+            ],
             "attributes": {
                 "type": "module"
             }
