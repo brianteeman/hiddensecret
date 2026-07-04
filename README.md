@@ -1,6 +1,6 @@
 # System - Hidden Secrets (Joomla 6 Plugin)
 
-A Joomla 6 system plugin that replaces the browser’s default right-click context menu with a Bootstrap modal containing content from a Joomla module.
+A Joomla 6 system plugin that replaces the browser’s default right-click context menu with a Bootstrap modal containing content from a Joomla module. Additionally the modal can be triggered with a konami code.
 
 This creates a simple way to add hidden panels, developer tools, or contextual UI triggered from any frontend element.
 
