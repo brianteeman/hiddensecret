@@ -1,0 +1,15 @@
+<updates>
+	<update>
+		<name>Hidden Secrets</name>
+		<description>Shows a Bootstrap modal containing module output when right-clicking a configured selector.</description>
+		<element>plg_system_hiddensecrets</element>
+		<type>plugin</type>
+		<version>1.0.1</version>
+		<client>site</client>
+		<downloads>
+			<downloadurl type="full" format="zip">https://raw.githubusercontent.com/brianteeman/hiddensecret/main/manifest.xml</downloadurl>
+		</downloads>
+		<targetplatform name="joomla" version="((6\.(0|1|2|3|4|5))" />
+		<php_minimum>8.3</php_minimum>
+	</update>
+</updates>
