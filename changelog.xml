@@ -1,0 +1,10 @@
+<changelogs>
+    <changelog>
+        <element>hiddensecrets</element>
+        <type>plugin</type>
+        <version>1.0.1</version>
+        <addition>
+            <item>Added update server for automatic updates.</item>
+        </addition>
+    </changelog>
+</changelogs>
